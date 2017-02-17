@@ -1,14 +1,14 @@
 #!bin/bash
 
 API="${API_ORIGIN:-http://localhost:4741}"
-URL_PATH="/profiles/${ID}"
+URL_PATH="/reviews/${ID}"
 curl "${API}${URL_PATH}" \
   --include \
   --request PATCH \
   --header "Content-Type: application/json" \
   --data '{
-    "profiles": {
-      "name": "Alex"
+    "reviews": {
+      "stars": "'"${STARS}"'"
     }
   }'
    #\

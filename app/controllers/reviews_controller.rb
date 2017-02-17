@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :update, :destroy]
 
@@ -18,7 +19,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
 
     if @review.save
-      render json: @review, status: :created, location: @review
+      render json: @review, status: :created
     else
       render json: @review.errors, status: :unprocessable_entity
     end
@@ -39,13 +40,14 @@ class ReviewsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_review
-      @review = Review.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def review_params
-      params.require(:review).permit(:stars)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_review
+    @review = Review.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def review_params
+    params.require(:review).permit(:stars)
+  end
 end
