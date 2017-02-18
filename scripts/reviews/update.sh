@@ -7,7 +7,7 @@ curl "${API}${URL_PATH}" \
   --request PATCH \
   --header "Content-Type: application/json" \
   --data '{
-    "reviews": {
+    "review": {
       "stars": "'"${STARS}"'"
     }
   }'

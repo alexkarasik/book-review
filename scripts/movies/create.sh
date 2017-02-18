@@ -6,7 +6,10 @@ curl "${API}${URL_PATH}" \
   --header "Content-Type: application/json" \
   --data '{
     "movie": {
-      "title": "'"{$TITLE}"'"
+      "title": "'"${TITLE}"'",
+      "length": "'"${LENGTH}"'",
+      "rating": "'"${RATING}"'",
+      "description": "'"${DESCRIPTION}"'"
     }
   }'
 

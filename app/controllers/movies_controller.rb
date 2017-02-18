@@ -37,6 +37,8 @@ class MoviesController < ApplicationController
   # DELETE /movies/1
   def destroy
     @movie.destroy
+
+    head :no_content
   end
 
   # Use callbacks to share common setup or constraints between actions.
@@ -46,7 +48,7 @@ class MoviesController < ApplicationController
   private :set_movie
   # Only allow a trusted parameter "white list" through.
   def movie_params
-    params.require(:movie).permit(:title)
+    params.require(:movie).permit(:title, :length, :rating, :description)
   end
   private :movie_params
 end
