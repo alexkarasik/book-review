@@ -2,7 +2,9 @@
 class CreateReviews < ActiveRecord::Migration[5.0]
   def change
     create_table :reviews do |t|
-      t.integer :stars, null: false
+      t.integer :movie_id, null: false
+      t.string :movie, null: false
+      t.string :review, null: false
 
       t.references :movie, index: true, foreign_key: true, null: false
       t.references :user, index: true, foreign_key: true, null: false

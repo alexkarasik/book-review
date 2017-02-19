@@ -3,7 +3,8 @@ class Review < ApplicationRecord
   belongs_to :movie
   belongs_to :user
 
-  validates :stars, presence: true
-  validates :user, presence: true
+  validates :movie_id, presence: true
   validates :movie, presence: true
+  validates :review, presence: true
+
 end

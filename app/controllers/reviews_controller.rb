@@ -16,7 +16,7 @@ class ReviewsController < ApplicationController
 
   # POST /reviews
   def create
-    @review = Review.new(review_params)
+    @review = current_user.reviews.build(review_params)
 
     if @review.save
       render json: @review, status: :created
@@ -28,7 +28,7 @@ class ReviewsController < ApplicationController
   # PATCH/PUT /reviews/1
   def update
     if @review.update(review_params)
-      render json: @review
+      head :no_content
     else
       render json: @review.errors, status: :unprocessable_entity
     end
@@ -39,15 +39,16 @@ class ReviewsController < ApplicationController
     @review.destroy
   end
 
-  private
-
   # Use callbacks to share common setup or constraints between actions.
   def set_review
-    @review = Review.find(params[:id])
+    @review = current_user.reviews.find(params[:id])
   end
+  private :set_review
 
   # Only allow a trusted parameter "white list" through.
   def review_params
-    params.require(:review).permit(:stars)
+    params.require(:review).permit(:movie_id, :movie, :review)
   end
+
+  private :review_params
 end

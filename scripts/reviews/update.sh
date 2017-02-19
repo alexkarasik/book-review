@@ -8,7 +8,9 @@ curl "${API}${URL_PATH}" \
   --header "Content-Type: application/json" \
   --data '{
     "review": {
-      "stars": "'"${STARS}"'"
+      "movie_id":"'"${MOVIE_ID}"'",
+      "movie": "'"${MOVIE}"'",
+      "review": "'"${REVIEW}"'"
     }
   }'
    #\

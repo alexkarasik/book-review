@@ -33,9 +33,10 @@ ActiveRecord::Schema.define(version: 20170217165431) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "stars",      null: false
     t.integer  "movie_id",   null: false
     t.integer  "user_id",    null: false
+    t.string   "movie",      null: false
+    t.string   "review",     null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["movie_id"], name: "index_reviews_on_movie_id", using: :btree
