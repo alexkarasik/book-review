@@ -17,3 +17,11 @@
 #                 movie_length: 90,
 #                 rating: 'PG-13')
 # end
+
+%w(antony jeff matt jason).each do |name|
+  email = "#{name}@#{name}.com"
+  next if User.exists? email: email
+  User.create!(email: email,
+               password: 'abc123',
+               password_confirmation: nil)
+end

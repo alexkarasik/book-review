@@ -6,6 +6,7 @@ curl "${API}${URL_PATH}" \
   --include \
   --request PATCH \
   --header "Content-Type: application/json" \
+
   --data '{
     "movie": {
       "title": "'"{$TITLE}"'",

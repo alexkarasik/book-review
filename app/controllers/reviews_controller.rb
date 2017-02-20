@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class ReviewsController < ApplicationController
+class ReviewsController < OpenReadController
   before_action :set_review, only: [:show, :update, :destroy]
 
   # GET /reviews
