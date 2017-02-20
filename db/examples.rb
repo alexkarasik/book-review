@@ -19,6 +19,17 @@
 # end
 
 User.transaction do
+%w(Grizzly Man Aguirre ET).each do |name|
+  email = "#{name}@#{name}.com"
+  next if User.exists? email: email
+  User.create!(email: email,
+               password: 'abc123',
+               password_confirmation: nil)
+end
+end
+
+
+User.transaction do
 %w(antony jeff matt jason).each do |name|
   email = "#{name}@#{name}.com"
   next if User.exists? email: email
