@@ -18,10 +18,12 @@
 #                 rating: 'PG-13')
 # end
 
+User.transaction do
 %w(antony jeff matt jason).each do |name|
   email = "#{name}@#{name}.com"
   next if User.exists? email: email
   User.create!(email: email,
                password: 'abc123',
                password_confirmation: nil)
+end
 end
