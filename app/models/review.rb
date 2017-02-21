@@ -5,5 +5,4 @@ class Review < ApplicationRecord
 
   validates :movie_id, presence: true
   validates :review_entry, presence: true
-
 end

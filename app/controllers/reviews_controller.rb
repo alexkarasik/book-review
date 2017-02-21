@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 class ReviewsController < OpenReadController
-  before_action :set_review, only: [:show, :update, :destroy]
+  before_action :set_review, only: [:update, :destroy]
+# took out :show frm before_action
 
   # GET /reviews
   def index
@@ -11,9 +12,9 @@ class ReviewsController < OpenReadController
 
   # GET /reviews/1
   def show
-    render json: @review
+    render json: Review.find(params[:id])
   end
-
+# render json: @review
   # POST /reviews
   def create
     @review = current_user.reviews.build(review_params)
@@ -28,7 +29,7 @@ class ReviewsController < OpenReadController
   # PATCH/PUT /reviews/1
   def update
     if @review.update(review_params)
-      head :no_content
+      render json: @reviews
     else
       render json: @review.errors, status: :unprocessable_entity
     end
@@ -37,6 +38,8 @@ class ReviewsController < OpenReadController
   # DELETE /reviews/1
   def destroy
     @review.destroy
+
+    head :no_content
   end
 
   # Use callbacks to share common setup or constraints between actions.
@@ -47,7 +50,7 @@ class ReviewsController < OpenReadController
 
   # Only allow a trusted parameter "white list" through.
   def review_params
-    params.require(:review).permit(:movie_id, :movie, :review)
+    params.require(:review).permit(:movie_id, :review_entry)
   end
 
   private :review_params

@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 class Movie < ApplicationRecord
-  has_many :users, through: :reviews
   has_many :reviews
 
   validates :title, presence: true

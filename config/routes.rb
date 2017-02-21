@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
-  resources :reviews
-  resources :movies
+  resources :reviews, except: [:new, :edit]
+  resources :movies, only: [:index, :show]
   resources :examples, except: [:new, :edit]
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'
   delete '/sign-out/:id' => 'users#signout'
   patch '/change-password/:id' => 'users#changepw'
-  resources :users, only: [:create, :index, :show, :update, :destroy]
+  resources :users, only: [:index, :show]
 end

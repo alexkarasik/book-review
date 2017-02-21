@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 class MovieSerializer < ActiveModel::Serializer
-  attributes :id, :title, :length, :rating, :description
+  attributes :id, :title, :length, :rating, :description, :reviews
 end
