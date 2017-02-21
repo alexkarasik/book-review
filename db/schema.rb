@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170220205429) do
+ActiveRecord::Schema.define(version: 20170221150309) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,15 +35,13 @@ ActiveRecord::Schema.define(version: 20170220205429) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "movie_id",   null: false
-    t.string   "movie",      null: false
-    t.string   "review",     null: false
-    t.integer  "user_id",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "review_id"
+    t.string   "movie",        null: false
+    t.string   "review_entry", null: false
+    t.integer  "movie_id",     null: false
+    t.integer  "user_id",      null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.index ["movie_id"], name: "index_reviews_on_movie_id", using: :btree
-    t.index ["review_id"], name: "index_reviews_on_review_id", using: :btree
     t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
   end
 
@@ -60,6 +58,5 @@ ActiveRecord::Schema.define(version: 20170220205429) do
   add_foreign_key "examples", "users"
   add_foreign_key "movies", "reviews"
   add_foreign_key "reviews", "movies"
-  add_foreign_key "reviews", "reviews"
   add_foreign_key "reviews", "users"
 end
