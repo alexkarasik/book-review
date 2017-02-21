@@ -9,7 +9,7 @@ curl "${API}${URL_PATH}" \
   --data '{
     "review": {
       "movie_id": "'"${MOVIE_ID}"'",
-      "review": "'"${REVIEW}"'"
+      "review_entry": "'"${REVIEW_ENTRY}"'"
     }
   }'
    #\

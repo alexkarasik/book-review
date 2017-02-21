@@ -4,10 +4,11 @@ curl "${API}${URL_PATH}" \
   --include \
   --request POST \
   --header "Content-Type: application/json" \
+  --header "Authorization: Token token=$TOKEN" \
   --data '{
     "review": {
       "movie_id": "'"${MOVIE_ID}"'",
-      "reviewentry": "'"${REVIEW_ENTRY}"'"
+      "review_entry": "'"${REVIEW_ENTRY}"'"
     }
   }'
 
