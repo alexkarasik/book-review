@@ -11,6 +11,8 @@ class MoviesController < ApplicationController
 
   # GET /movies/1
   def show
+    @movie = Movie.find(params[:id])
+
     render json: @movie
   end
 
