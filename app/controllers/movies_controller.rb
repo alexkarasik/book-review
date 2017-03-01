@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-class MoviesController < ApplicationController
+class MoviesController < OpenReadController
   before_action :set_movie, only: [:show, :update, :destroy]
 
   # GET /movies
