@@ -28,9 +28,9 @@ class ReviewsController < OpenReadController
 
   # PATCH/PUT /reviews/1
   def update
-    binding.pry
+
     if @review.update(review_params)
-      binding.pry
+
       render json: @review
     else
       render json: @review.errors, status: :unprocessable_entity
@@ -46,14 +46,14 @@ class ReviewsController < OpenReadController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_review
-    binding.pry
+
     @review = current_user.reviews.find(params[:id])
   end
   private :set_review
 
   # Only allow a trusted parameter "white list" through.
   def review_params
-    binding.pry
+
     params.require(:review).permit(:movie_id, :review_entry)
   end
 
